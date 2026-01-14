@@ -3,117 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perdana Spesial Nomor Cantik</title>
-
-  <!-- Tailwind -->
+  <title>Perdana Spesial Nomor Cantik | Telkomsel Nabire</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-
-<body class="bg-white text-gray-800">
+<body class="bg-red-700 text-white">
 
 <!-- HEADER -->
-<header class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
-  <div class="text-2xl font-extrabold">Telkomsel Nabire</div>
-  <span class="font-bold text-red-600">Telkomsel</span>
+<header class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+  <h1 class="text-2xl font-extrabold">Nabire</h1>
+  <img src="telkomsel-logo.png" alt="Telkomsel" class="h-8">
 </header>
 
 <!-- HERO -->
 <section class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+  <!-- TEXT -->
   <div>
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+    <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow">
       Perdana Spesial<br>Nomor Cantik
-    </h1>
+    </h2>
 
-    <p class="text-red-600 font-bold text-xl mb-4">
-      BONUS Kuota 260GB / Tahun
+    <p class="text-xl font-bold mb-4">
+      Bonus Kuota <span class="text-yellow-300">260GB</span> Selama Setahun
     </p>
 
-    <p class="text-gray-600 mb-6">
-      Dapatkan kartu perdana Telkomsel dengan nomor spesial,
-      kuota <b>20GB/bulan selama 12 bulan</b> dan masa aktif hingga <b>3 tahun</b>.
-    </p>
+    <div class="flex gap-6 mb-6">
+      <div>
+        <p class="text-sm">Bulan Pertama</p>
+        <p class="text-3xl font-extrabold">40GB</p>
+      </div>
+      <div>
+        <p class="text-sm">Bulan Kedua & Seterusnya</p>
+        <p class="text-3xl font-extrabold">20GB</p>
+      </div>
+    </div>
 
-    <a href="#list-nomor"
-       class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold">
-      Lihat Nomor
-    </a>
+    <ul class="text-sm space-y-2">
+      <li>• Stok Terbatas</li>
+      <li>• Kuota berlaku setiap bulan</li>
+      <li>• Masa aktif hingga 2027 setelah registrasi</li>
+    </ul>
   </div>
 
-  <div class="rounded-3xl bg-gradient-to-br from-red-600 to-pink-500 p-6">
-    <img src="Telkomsel halo kartu.jpg"
-         class="rounded-2xl" />
+  <!-- IMAGE -->
+  <div class="relative">
+    <div class="bg-gradient-to-br from-pink-500 to-red-800 rounded-[3rem] p-6">
+      <img src="hero.jpg" alt="Perdana Telkomsel" class="rounded-[2.5rem]">
+    </div>
   </div>
-</section>
 
-<!-- HARGA -->
-<section class="max-w-7xl mx-auto px-6 mt-16">
-  <div class="bg-gradient-to-r from-red-500 to-pink-500 rounded-3xl text-white text-center py-10">
-    <p class="text-lg">Harga Mulai</p>
-    <h2 class="text-4xl font-extrabold mt-2">Rp 450.000</h2>
-  </div>
 </section>
 
 <!-- LIST NOMOR -->
-<section id="list-nomor" class="max-w-7xl mx-auto px-6 mt-20">
-  <h2 class="text-3xl font-extrabold mb-6 text-center">
-    📱 Daftar Nomor Cantik
-  </h2>
+<section class="max-w-7xl mx-auto px-6 mt-20">
+  <h3 class="text-3xl font-extrabold mb-8 text-center">Daftar Nomor Cantik</h3>
 
-  <div id="list" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <p class="text-center col-span-full">Memuat data...</p>
+  <div id="list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="text-center col-span-full">Loading...</div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="mt-24 py-6 text-center text-gray-500 text-sm">
-  © 2026 Nomor Cantik Telkomsel
+<footer class="mt-24 py-6 text-center text-sm text-white/80">
+  © 2026 Telkomsel Nabire. All rights reserved.
 </footer>
 
-<!-- SCRIPT DATA -->
 <script>
-const API_URL =
-  "https://script.google.com/macros/s/AKfycbwSLeizLGNBLjXNpEpgLyORSVEZZUbwIGFA7cFIhsXrPrzOzuQwnETUcLYHjB_qE7Ofwg/exec";
+const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
 
-fetch(API_URL)
-  .then(res => res.json())
-  .then(data => {
+fetch(DATA_URL)
+  .then(res => res.text())
+  .then(csv => {
+    const rows = csv.split("\n").slice(1);
     const list = document.getElementById("list");
     list.innerHTML = "";
 
-    if (!data.length) {
-      list.innerHTML = "<p class='col-span-full text-center'>Data belum tersedia</p>";
-      return;
-    }
-
-    data.forEach(item => {
-      const harga = parseInt(
-        String(item.harga).replace(/[^0-9]/g, "")
-      );
+    rows.forEach(row => {
+      if (!row.trim()) return;
+      const [nomor, kategori, harga] = row.split(",");
 
       list.innerHTML += `
-        <div class="border rounded-2xl p-6 shadow hover:shadow-lg transition">
-          <div class="text-lg font-bold mb-1">${item.nomor}</div>
-          <div class="text-sm text-gray-500 mb-2">${item.kategori}</div>
-          <div class="text-green-600 font-extrabold text-xl">
-            Rp ${harga.toLocaleString("id-ID")}
-          </div>
+        <div class="bg-white text-gray-800 rounded-2xl p-6 shadow">
+          <div class="text-lg font-bold">${nomor}</div>
+          <div class="text-sm text-gray-500">${kategori}</div>
+          <div class="text-red-600 font-extrabold text-xl mt-2">Rp ${Number(harga).toLocaleString()}</div>
         </div>
       `;
     });
   })
-  .catch(err => {
-    document.getElementById("list").innerHTML =
-      "<p class='col-span-full text-center'>Gagal memuat data</p>";
-    console.error(err);
+  .catch(() => {
+    document.getElementById("list").innerText = "Gagal memuat data";
   });
 </script>
 
 </body>
 </html>
+
 
 
