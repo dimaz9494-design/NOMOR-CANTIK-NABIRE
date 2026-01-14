@@ -32,30 +32,24 @@
 <div id="list">Loading...</div>
 
 <script>
-const GVIZ_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/gviz/tq?tqx=out:json&gid=0";
+const API_URL = "https://script.google.com/macros/s/AKfycbwSLeizLGNBLjXNpEpgLyORSVEZZUbwIGFA7cFIhsXrPrzOzuQwnETUcLYHjB_qE7Ofwg/exec";
 
-fetch(GVIZ_URL)
-  .then(res => res.text())
-  .then(text => {
-    const json = JSON.parse(text.substring(47).slice(0, -2));
-    const rows = json.table.rows;
-
+fetch(API_URL)
+  .then(res => res.json())
+  .then(data => {
     const list = document.getElementById("list");
     list.innerHTML = "";
 
-    if (!rows || rows.length === 0) {
+    if (!Array.isArray(data) || data.length === 0) {
       list.innerHTML = "<p>Data belum tersedia</p>";
       return;
     }
 
-    rows.forEach(r => {
-      const nomor = r.c[0]?.v ?? "-";
-      const kategori = r.c[1]?.v ?? "-";
-      const hargaRaw = r.c[2]?.v ?? 0;
-
+    data.forEach(item => {
+      const nomor = item.nomor || "-";
+      const kategori = item.kategori || "-";
       const harga = parseInt(
-        String(hargaRaw).replace(/[^0-9]/g, "")
+        String(item.harga || "0").replace(/[^0-9]/g, "")
       );
 
       list.innerHTML += `
@@ -69,11 +63,12 @@ fetch(GVIZ_URL)
   })
   .catch(err => {
     document.getElementById("list").innerText = "Gagal memuat data";
-    console.error(err);
+    console.error("FETCH ERROR:", err);
   });
 </script>
 </body>
 </html>
+
 
 
 
