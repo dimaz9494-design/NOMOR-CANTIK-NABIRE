@@ -32,30 +32,30 @@
 <div id="list">Loading...</div>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbwSLeizLGNBLjXNpEpgLyORSVEZZUbwIGFA7cFIhsXrPrzOzuQwnETUcLYHjB_qE7Ofwg/exec";
+const SHEET_ID = "1D9oaZdqxEb5YBbjaeq8F08eV64IpWvknKkEOqSBqQ4s";
+const SHEET_NAME = "DATA"; // GANTI SESUAI TAB
+const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
 
-fetch(API_URL)
-  .then(r => r.json())
-  .then(data => {
+fetch(URL)
+  .then(res => res.text())
+  .then(text => {
+    const json = JSON.parse(text.substring(47).slice(0, -2));
+    const rows = json.table.rows;
+
     const list = document.getElementById("list");
     list.innerHTML = "";
 
-    if (data.error) {
-      list.innerHTML = data.error;
-      return;
-    }
-
-    data.forEach(item => {
-      const harga = parseInt(
-        String(item.harga).replace(/[^0-9]/g, "")
-      );
+    rows.forEach(r => {
+      const nomor = r.c[0]?.v || "-";
+      const kategori = r.c[1]?.v || "-";
+      const harga = r.c[2]?.v || 0;
 
       list.innerHTML += `
         <div class="border rounded-2xl p-6 shadow">
-          <div class="font-bold">${item.nomor}</div>
-          <div class="text-gray-500">${item.kategori}</div>
-          <div class="text-green-600 font-extrabold">
-            Rp ${harga.toLocaleString()}
+          <div class="text-lg font-bold">${nomor}</div>
+          <div class="text-sm text-gray-500">${kategori}</div>
+          <div class="text-green-600 font-extrabold text-xl">
+            Rp ${Number(harga).toLocaleString()}
           </div>
         </div>
       `;
@@ -68,6 +68,7 @@ fetch(API_URL)
 </script>
 </body>
 </html>
+
 
 
 
