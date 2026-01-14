@@ -40,22 +40,22 @@ fetch(API_URL)
     const list = document.getElementById("list");
     list.innerHTML = "";
 
-    if (!data || data.length === 0) {
-      list.innerHTML = "<p class='col-span-full text-center'>Nomor belum tersedia</p>";
-      return;
-    }
-
     data.forEach(item => {
+      const harga = parseInt(
+        String(item.harga).replace(/[^0-9]/g, "")
+      );
+
       list.innerHTML += `
-        <div class="border rounded-2xl p-6 shadow hover:shadow-lg transition">
-          <div class="text-lg font-bold mb-1">${item.Nomor ?? item.nomor}</div>
-          <div class="text-sm text-gray-500 mb-2">${item.Kategori ?? item.kategori}</div>
+        <div class="border rounded-2xl p-6 shadow">
+          <div class="text-lg font-bold">${item.nomor}</div>
+          <div class="text-sm text-gray-500">${item.kategori}</div>
           <div class="text-green-600 font-extrabold text-xl">
-            Rp ${parseInt(String(item.Harga ?? item.harga).replace(/[^0-9]/g, "")).toLocaleString()}
+            Rp ${harga.toLocaleString()}
           </div>
         </div>
       `;
     });
+  });
   })
   .catch(err => {
     document.getElementById("list").innerHTML =
@@ -65,6 +65,7 @@ fetch(API_URL)
 </script>
 </body>
 </html>
+
 
 
 
