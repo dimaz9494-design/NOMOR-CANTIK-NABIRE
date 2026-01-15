@@ -2,265 +2,235 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perdana Spesial Nomor Cantik | Telkomsel Nabire</title>
-
-<!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: #b81414;
+  margin: 0;
+  background: #b31313;
   color: #fff;
 }
 
-/* ================= HEADER ================= */
-.header {
+/* ================= TOP BAR ================= */
+.topbar {
   max-width: 1200px;
   margin: auto;
-  padding: 50px 20px 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-left {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.top-right img {
+  height: 28px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
 }
 
-.location {
-  font-size: 14px;
-  font-weight: 600;
-  opacity: 0.9;
-}
-
-h1 {
+.hero h1 {
   font-size: 48px;
   line-height: 1.1;
-  margin: 10px 0 10px;
+  margin: 10px 0;
   color: #fff;
-
   text-shadow:
-    -4px -4px 0 #ff9800,
-     4px -4px 0 #ff9800,
-    -4px  4px 0 #ff9800,
-     4px  4px 0 #ff9800,
-     0px  6px 10px rgba(0,0,0,0.6);
+    0 4px 0 #ff9800,
+    0 8px 0 rgba(0,0,0,0.2);
 }
 
-.subtitle {
-  color: #ffd400;
-  font-weight: 700;
-  margin-bottom: 18px;
+.hero h1 span {
+  color: #ffd54f;
 }
 
-.quota {
+.hero p {
+  margin: 10px 0 20px;
+  font-weight: 600;
+}
+
+.bonus {
   display: flex;
-  gap: 30px;
-  margin-bottom: 18px;
+  gap: 40px;
+  margin-bottom: 20px;
 }
 
-.quota div span {
-  display: block;
-  font-size: 13px;
-}
-
-.quota div strong {
-  font-size: 30px;
-}
-
-.notes {
+.bonus div {
   font-size: 14px;
-  line-height: 1.6;
 }
 
-.hero {
-  background: linear-gradient(135deg,#7a0000,#ff0000);
-  padding: 20px;
-  border-radius: 26px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+.bonus b {
+  font-size: 32px;
 }
 
-.hero img {
+.hero ul {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+.hero-image img {
   width: 100%;
-  border-radius: 22px;
+  max-width: 420px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* ================= SECTION ================= */
+/* ================= LIST ================= */
 .section {
   max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
 .section h2 {
   text-align: center;
-  font-size: 26px;
   margin-bottom: 20px;
 }
 
-/* ================= SEARCH ================= */
-.search-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+/* SEARCH */
+.search-box {
+  max-width: 400px;
+  margin: 0 auto 30px;
 }
 
-.search-wrapper input {
-  width: 420px;
-  max-width: 90%;
+.search-box input {
+  width: 100%;
   padding: 14px 18px;
-  border-radius: 14px;
+  border-radius: 30px;
   border: none;
-  outline: none;
-
   font-size: 16px;
-  font-weight: 600;
-
-  box-shadow:
-    0 8px 0 rgba(0,0,0,0.25),
-    0 18px 35px rgba(0,0,0,0.4);
 }
 
-/* ================= GRID ================= */
+/* CARD GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-.number-card {
+.card {
   background: #fff;
-  color: #111;
+  color: #000;
   padding: 18px;
   border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-  transition: transform .2s;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-.number-card:hover {
-  transform: translateY(-5px);
-}
-
-.number-card strong {
-  font-size: 18px;
-}
-
-.status {
-  font-size: 13px;
-  margin: 6px 0;
+.card small {
+  color: #777;
 }
 
 .price {
-  font-weight: 800;
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 700;
   color: #0a9c3d;
 }
 
-/* ================= FOOTER ================= */
-footer {
-  text-align: center;
-  font-size: 13px;
-  opacity: 0.7;
-  padding: 40px 20px;
+.sold {
+  color: #c62828;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<div class="header">
-  <div>
-    <div class="location">Nabire</div>
-
-    <h1>Perdana Spesial<br>Nomor Cantik</h1>
-
-    <div class="subtitle">Bonus Kuota 260GB Selama Setahun</div>
-
-    <div class="quota">
-      <div>
-        <span>Bulan Pertama</span>
-        <strong>40GB</strong>
-      </div>
-      <div>
-        <span>Bulan Kedua & Seterusnya</span>
-        <strong>20GB</strong>
-      </div>
-    </div>
-
-    <div class="notes">
-      • Stok terbatas<br>
-      • Kuota berlaku setiap bulan<br>
-      • Masa aktif hingga 2027 setelah registrasi
-    </div>
-  </div>
-
-  <div class="hero">
-    <img src="PERDANA SPESIAL NOMOR CANTIK.png" alt="Telkomsel">
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="top-left">Nabire</div>
+  <div class="top-right">
+    <img src="LOGO TSEL PUTIH.png" alt="Telkomsel">
   </div>
 </div>
 
-<!-- ================= LIST ================= -->
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>Perdana Spesial<br><span>Nomor Cantik</span></h1>
+    <p>Bonus Kuota 260GB Selama Setahun</p>
+
+    <div class="bonus">
+      <div>Bulan Pertama<br><b>40GB</b></div>
+      <div>Bulan Kedua & Seterusnya<br><b>20GB</b></div>
+    </div>
+
+    <ul>
+      <li>Stok terbatas</li>
+      <li>Kuota berlaku setiap bulan</li>
+      <li>Masa aktif hingga 2027 setelah registrasi</li>
+    </ul>
+  </div>
+
+  <div class="hero-image">
+    <img src="PERDANA SPESIAL NOMOR CANTIK.png" alt="Perdana Telkomsel">
+  </div>
+</div>
+
+<!-- LIST -->
 <div class="section">
   <h2>Daftar Nomor Cantik</h2>
 
-  <div class="search-wrapper">
-    <input type="text" id="searchNumber"
-      placeholder="Cari nomor cantik (contoh: 08138)"
-      onkeyup="filterNumbers()">
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Cari nomor...">
   </div>
 
-  <div class="grid">
-    <div class="number-card">
-      <strong>81380198555</strong>
-      <div class="status">Sold Out</div>
-      <div class="price">Rp 450.000</div>
-    </div>
-
-    <div class="number-card">
-      <strong>81380199933</strong>
-      <div class="status">Tersedia</div>
-      <div class="price">Rp 450.000</div>
-    </div>
-
-    <div class="number-card">
-      <strong>81380200111</strong>
-      <div class="status">Tersedia</div>
-      <div class="price">Rp 450.000</div>
-    </div>
-
-    <div class="number-card">
-      <strong>81380194444</strong>
-      <div class="status">Tersedia</div>
-      <div class="price">Rp 450.000</div>
-    </div>
-
-    <div class="number-card">
-      <strong>81380197555</strong>
-      <div class="status">Tersedia</div>
-      <div class="price">Rp 450.000</div>
-    </div>
-  </div>
+  <div id="list" class="grid"></div>
 </div>
 
-<footer>
-© Telkomsel Nabire
-</footer>
-
 <script>
-function filterNumbers() {
-  const input = document.getElementById("searchNumber").value.toLowerCase();
-  const cards = document.getElementsByClassName("number-card");
+const SHEET_URL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
 
-  for (let i = 0; i < cards.length; i++) {
-    const text = cards[i].innerText.toLowerCase();
-    cards[i].style.display = text.includes(input) ? "block" : "none";
-  }
+let allData = [];
+
+fetch(SHEET_URL)
+  .then(res => res.text())
+  .then(csv => {
+    const rows = csv.split("\n").slice(1);
+    allData = rows.map(r => {
+      const [nomor, status, harga] = r.split(",");
+      return { nomor, status, harga };
+    });
+    render(allData);
+  });
+
+function render(data) {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  data.forEach(d => {
+    list.innerHTML += `
+      <div class="card">
+        <div><b>${d.nomor}</b></div>
+        <small class="${d.status === 'Sold Out' ? 'sold' : ''}">
+          ${d.status}
+        </small>
+        <div class="price">Rp ${Number(d.harga).toLocaleString()}</div>
+      </div>
+    `;
+  });
 }
+
+document.getElementById("search").addEventListener("input", e => {
+  const q = e.target.value;
+  render(allData.filter(d => d.nomor.includes(q)));
+});
 </script>
 
 </body>
