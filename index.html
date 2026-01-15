@@ -5,19 +5,22 @@
 <title>Perdana Spesial Nomor Cantik | Telkomsel Nabire</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- FONT POPPINS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   margin: 0;
   background: #b31313;
-  color: #fff;
+  color: #ffffff;
 }
 
-/* ================= TOP BAR ================= */
+/* TOP BAR */
 .topbar {
   max-width: 1200px;
   margin: auto;
@@ -26,17 +29,15 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
 .top-left {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 }
-
 .top-right img {
   height: 28px;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero {
   max-width: 1200px;
   margin: auto;
@@ -47,74 +48,71 @@ body {
   align-items: center;
 }
 
-/* === JUDUL KV (DIPERBAIKI) === */
+/* JUDUL KV */
 .hero h1 {
-  font-size: 48px;
-  line-height: 1.1;
+  font-size: 52px;
+  line-height: 1.05;
   margin: 10px 0;
   font-weight: 900;
-  color: #ffd54f;
+  color: #ffffff;
   text-shadow:
-    -2px -2px 0 #ff9800,
-     2px -2px 0 #ff9800,
-    -2px  2px 0 #ff9800,
-     2px  2px 0 #ff9800,
-     0  6px 0 rgba(0,0,0,0.25);
+    -3px -3px 0 #ff9800,
+     3px -3px 0 #ff9800,
+    -3px  3px 0 #ff9800,
+     3px  3px 0 #ff9800,
+     0  6px 0 rgba(0,0,0,0.35);
 }
 
-.hero h1 span {
-  display: block;
-}
-
-/* === SUBTITLE KV (DIPERBAIKI) === */
+/* SUBTITLE */
 .hero p {
-  margin: 8px 0 22px;
+  margin: 10px 0 24px;
   font-size: 16px;
-  font-weight: 800;
-  color: #ffd54f;
-  text-shadow:
-    -1px -1px 0 #c62828,
-     1px -1px 0 #c62828,
-    -1px  1px 0 #c62828,
-     1px  1px 0 #c62828;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
+/* BONUS */
 .bonus {
   display: flex;
   gap: 40px;
   margin-bottom: 20px;
 }
-
 .bonus div {
   font-size: 14px;
+  font-weight: 500;
 }
-
 .bonus b {
-  font-size: 32px;
+  display: block;
+  font-size: 36px;
+  font-weight: 900;
 }
 
+/* BULLET */
 .hero ul {
   padding-left: 18px;
   font-size: 14px;
+  font-weight: 400;
 }
 
+/* IMAGE */
 .hero-image img {
   width: 100%;
   max-width: 420px;
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.45);
 }
 
-/* ================= LIST ================= */
+/* SECTION */
 .section {
   max-width: 1200px;
   margin: auto;
   padding: 40px 20px;
 }
-
 .section h2 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 /* SEARCH */
@@ -122,7 +120,6 @@ body {
   max-width: 400px;
   margin: 0 auto 30px;
 }
-
 .search-box input {
   width: 100%;
   padding: 14px 18px;
@@ -131,32 +128,30 @@ body {
   font-size: 16px;
 }
 
-/* CARD GRID */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
-
 .card {
-  background: #fff;
-  color: #000;
+  background: #ffffff;
+  color: #000000;
   padding: 18px;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
-
+.card b {
+  font-weight: 700;
+}
 .card small {
   color: #777;
 }
-
 .price {
-  margin-top: 6px;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
   color: #0a9c3d;
 }
-
 .sold {
   color: #c62828;
 }
@@ -176,16 +171,12 @@ body {
 <!-- HERO -->
 <div class="hero">
   <div>
-    <h1>
-      Perdana Spesial
-      <span>Nomor Cantik</span>
-    </h1>
-
+    <h1>Perdana Spesial<br>Nomor Cantik</h1>
     <p>Bonus Kuota 260GB Selama Setahun</p>
 
     <div class="bonus">
-      <div>Bulan Pertama<br><b>40GB</b></div>
-      <div>Bulan Kedua & Seterusnya<br><b>20GB</b></div>
+      <div>Bulan Pertama<b>40GB</b></div>
+      <div>Bulan Kedua & Seterusnya<b>20GB</b></div>
     </div>
 
     <ul>
@@ -196,7 +187,7 @@ body {
   </div>
 
   <div class="hero-image">
-    <img src="PERDANA SPESIAL NOMOR CANTIK.png" alt="Perdana Telkomsel">
+    <img src="PERDANA SPESIAL NOMOR CANTIK.png" alt="Promo Telkomsel">
   </div>
 </div>
 
@@ -205,20 +196,18 @@ body {
   <h2>Daftar Nomor Cantik</h2>
 
   <div class="search-box">
-    <input type="text" id="search" placeholder="Cari nomor...">
+    <input id="search" placeholder="Cari nomor...">
   </div>
 
   <div id="list" class="grid"></div>
 </div>
 
 <script>
-const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
-
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
 let allData = [];
 
 fetch(SHEET_URL)
-  .then(res => res.text())
+  .then(r => r.text())
   .then(csv => {
     const rows = csv.split("\n").slice(1);
     allData = rows.map(r => {
@@ -234,10 +223,8 @@ function render(data) {
   data.forEach(d => {
     list.innerHTML += `
       <div class="card">
-        <div><b>${d.nomor}</b></div>
-        <small class="${d.status === 'Sold Out' ? 'sold' : ''}">
-          ${d.status}
-        </small>
+        <b>${d.nomor}</b><br>
+        <small class="${d.status === 'Sold Out' ? 'sold' : ''}">${d.status}</small>
         <div class="price">Rp ${Number(d.harga).toLocaleString()}</div>
       </div>
     `;
@@ -245,8 +232,8 @@ function render(data) {
 }
 
 document.getElementById("search").addEventListener("input", e => {
-  const q = e.target.value;
-  render(allData.filter(d => d.nomor.includes(q)));
+  const val = e.target.value;
+  render(allData.filter(d => d.nomor.includes(val)));
 });
 </script>
 
