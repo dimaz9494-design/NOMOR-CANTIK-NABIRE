@@ -47,23 +47,36 @@ body {
   align-items: center;
 }
 
+/* === JUDUL KV (DIPERBAIKI) === */
 .hero h1 {
   font-size: 48px;
   line-height: 1.1;
   margin: 10px 0;
-  color: #fff;
+  font-weight: 900;
+  color: #ffd54f;
   text-shadow:
-    0 4px 0 #ff9800,
-    0 8px 0 rgba(0,0,0,0.2);
+    -2px -2px 0 #ff9800,
+     2px -2px 0 #ff9800,
+    -2px  2px 0 #ff9800,
+     2px  2px 0 #ff9800,
+     0  6px 0 rgba(0,0,0,0.25);
 }
 
 .hero h1 span {
-  color: #ffd54f;
+  display: block;
 }
 
+/* === SUBTITLE KV (DIPERBAIKI) === */
 .hero p {
-  margin: 10px 0 20px;
-  font-weight: 600;
+  margin: 8px 0 22px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffd54f;
+  text-shadow:
+    -1px -1px 0 #c62828,
+     1px -1px 0 #c62828,
+    -1px  1px 0 #c62828,
+     1px  1px 0 #c62828;
 }
 
 .bonus {
@@ -163,7 +176,11 @@ body {
 <!-- HERO -->
 <div class="hero">
   <div>
-    <h1>Perdana Spesial<br><span>Nomor Cantik</span></h1>
+    <h1>
+      Perdana Spesial
+      <span>Nomor Cantik</span>
+    </h1>
+
     <p>Bonus Kuota 260GB Selama Setahun</p>
 
     <div class="bonus">
