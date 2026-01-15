@@ -50,16 +50,38 @@
       margin-bottom: 10px;
     }
 
-    .hero h1 span {
-      display: block;
-      color: #fff;
-    }
+    .hero h1 {
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: -1.5px;
+  margin-bottom: 10px;
 
-    .hero .subtitle {
-      color: #ffd24d;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
+  text-shadow:
+    -4px -4px 0 #f7941d,
+     4px -4px 0 #f7941d,
+    -4px  4px 0 #f7941d,
+     4px  4px 0 #f7941d,
+    -4px  0px 0 #f7941d,
+     4px  0px 0 #f7941d,
+     0px -4px 0 #f7941d,
+     0px  4px 0 #f7941d,
+
+     0px 10px 0 rgba(0,0,0,0.35),
+     0px 18px 25px rgba(0,0,0,0.45);
+}
+
+.hero .subtitle {
+  color: #ffd200;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-shadow:
+    0px 4px 0 rgba(0,0,0,0.35),
+    0px 8px 16px rgba(0,0,0,0.4);
+  margin-bottom: 16px;
+}
 
     /* KUOTA */
     .quota {
@@ -261,4 +283,5 @@ document.getElementById("search").addEventListener("input", e => {
 
 </body>
 </html>
+
 
