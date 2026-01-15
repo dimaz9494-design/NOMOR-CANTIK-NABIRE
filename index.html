@@ -225,36 +225,40 @@
 
   <!-- SCRIPT DATA -->
   <script>
-    const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
+let allData = [];
 
-    fetch(SHEET_URL)
-      .then(res => res.json())
-      .then(data => {
-        const list = document.getElementById("list");
-        let rows = data;
+fetch(SHEET_URL)
+  .then(r => r.text())
+  .then(csv => {
+    const rows = csv.split("\n").slice(1);
+    allData = rows.map(r => {
+      const [nomor, status, harga] = r.split(",");
+      return { nomor, status, harga };
+    });
+    render(allData);
+  });
 
-        function render(filter="") {
-          list.innerHTML = "";
-          rows
-            .filter(r => r.nomor.includes(filter))
-            .forEach(r => {
-              list.innerHTML += `
-                <div class="card">
-                  <div class="number">${r.nomor}</div>
-                  <div class="status">${r.status}</div>
-                  <div class="price">Rp ${Number(r.harga).toLocaleString()}</div>
-                </div>
-              `;
-            });
-        }
+function render(data) {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  data.forEach(d => {
+    list.innerHTML += `
+      <div class="card">
+        <b>${d.nomor}</b><br>
+        <small class="${d.status === 'Sold Out' ? 'sold' : ''}">${d.status}</small>
+        <div class="price">Rp ${Number(d.harga).toLocaleString()}</div>
+      </div>
+    `;
+  });
+}
 
-        render();
-
-        document.getElementById("search").addEventListener("input", e => {
-          render(e.target.value);
-        });
-      });
-  </script>
+document.getElementById("search").addEventListener("input", e => {
+  const val = e.target.value;
+  render(allData.filter(d => d.nomor.includes(val)));
+});
+</script>
 
 </body>
 </html>
+
