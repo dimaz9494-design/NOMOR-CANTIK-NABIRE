@@ -41,57 +41,39 @@
 
     .hero h1 {
       font-size: 34px;
-      line-height: 1.15;
+      line-height: 1.05;
       font-weight: 900;
-      color: #ffd24d;
-      text-shadow:
-        3px 3px 0 #fff,
-        6px 6px 0 rgba(0,0,0,.25);
+      text-transform: uppercase;
+      color: #ffffff;
+      letter-spacing: -1.5px;
       margin-bottom: 10px;
+      text-shadow:
+        -4px -4px 0 #f7941d,
+         4px -4px 0 #f7941d,
+        -4px  4px 0 #f7941d,
+         4px  4px 0 #f7941d,
+        -4px  0px 0 #f7941d,
+         4px  0px 0 #f7941d,
+         0px -4px 0 #f7941d,
+         0px  4px 0 #f7941d,
+         0px 10px 0 rgba(0,0,0,0.35),
+         0px 18px 25px rgba(0,0,0,0.45);
     }
 
-    .hero h1 {
-  font-size: 34px;
-  line-height: 1.05;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #ffffff;
-  letter-spacing: -1.5px;
-  margin-bottom: 10px;
+    .hero .subtitle {
+      color: #ffd200;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      text-shadow:
+        0px 4px 0 rgba(0,0,0,0.35),
+        0px 8px 16px rgba(0,0,0,0.4);
+      margin-bottom: 16px;
+    }
 
-  text-shadow:
-    -4px -4px 0 #f7941d,
-     4px -4px 0 #f7941d,
-    -4px  4px 0 #f7941d,
-     4px  4px 0 #f7941d,
-    -4px  0px 0 #f7941d,
-     4px  0px 0 #f7941d,
-     0px -4px 0 #f7941d,
-     0px  4px 0 #f7941d,
-
-     0px 10px 0 rgba(0,0,0,0.35),
-     0px 18px 25px rgba(0,0,0,0.45);
-}
-
-.hero .subtitle {
-  color: #ffd200;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  text-shadow:
-    0px 4px 0 rgba(0,0,0,0.35),
-    0px 8px 16px rgba(0,0,0,0.4);
-  margin-bottom: 16px;
-}
-
-    /* KUOTA */
     .quota {
       display: flex;
       gap: 24px;
       margin-bottom: 16px;
-    }
-
-    .quota div {
-      font-size: 14px;
     }
 
     .quota strong {
@@ -99,14 +81,12 @@
       display: block;
     }
 
-    /* SYARAT */
     .terms {
       font-size: 13px;
       line-height: 1.6;
       margin-bottom: 20px;
     }
 
-    /* FOTO */
     .hero-image {
       display: flex;
       justify-content: center;
@@ -120,7 +100,7 @@
       box-shadow: 0 25px 50px rgba(0,0,0,.4);
     }
 
-    /* SECTION LIST */
+    /* LIST */
     .section-title {
       text-align: center;
       font-size: 22px;
@@ -128,7 +108,6 @@
       margin: 30px 0 12px;
     }
 
-    /* SEARCH */
     .search-box {
       padding: 0 20px 20px;
     }
@@ -139,10 +118,8 @@
       border-radius: 999px;
       border: none;
       font-size: 15px;
-      outline: none;
     }
 
-    /* LIST */
     .list {
       padding: 0 20px 40px;
       display: grid;
@@ -156,11 +133,6 @@
       border-radius: 16px;
     }
 
-    .card .number {
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
     .card .status {
       font-size: 13px;
       margin-bottom: 6px;
@@ -169,19 +141,35 @@
     .card .price {
       color: #0a8f3d;
       font-weight: 800;
+      margin-bottom: 10px;
     }
 
-    /* DESKTOP */
+    /* TOMBOL PESAN */
+    .btn-order {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #d50000;
+      color: #fff;
+      text-align: center;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .btn-order.disabled {
+      background: #ccc;
+      color: #666;
+      pointer-events: none;
+    }
+
     @media (min-width: 900px) {
       .hero {
         display: grid;
         grid-template-columns: 1.2fr 1fr;
         align-items: center;
         gap: 40px;
-      }
-
-      .hero-image {
-        justify-content: flex-end;
       }
 
       .list {
@@ -193,60 +181,44 @@
 
 <body>
 
-  <!-- HEADER -->
+<!-- HEADER -->
 <div class="top-bar">
   <div>Nabire</div>
-  <div>
-    <img src="LOGO TSEL PUTIH.png" alt="Telkomsel" class="logo">
-  </div>
+  <img src="LOGO TSEL PUTIH.png" class="logo">
 </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>
-        Perdana Spesial
-        <span>Nomor Cantik</span>
-      </h1>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Perdana Spesial <span>Nomor Cantik</span></h1>
+    <div class="subtitle">Bonus Kuota 260GB Selama Setahun</div>
 
-      <div class="subtitle">Bonus Kuota 260GB Selama Setahun</div>
-
-      <div class="quota">
-        <div>
-          Bulan Pertama
-          <strong>40GB</strong>
-        </div>
-        <div>
-          Bulan Kedua & Seterusnya
-          <strong>20GB</strong>
-        </div>
-      </div>
-
-      <div class="terms">
-        • Stok terbatas<br>
-        • Kuota berlaku setiap bulan<br>
-        • Masa aktif hingga 2027 setelah registrasi
-      </div>
+    <div class="quota">
+      <div>Bulan Pertama<strong>40GB</strong></div>
+      <div>Bulan Kedua & Seterusnya<strong>20GB</strong></div>
     </div>
 
-    <div class="hero-image">
-      <img src="PERDANA SPESIAL NOMOR CANTIK.png" alt="Perdana Telkomsel">
+    <div class="terms">
+      • Stok terbatas<br>
+      • Kuota berlaku setiap bulan<br>
+      • Masa aktif hingga 2027 setelah registrasi
     </div>
-  </section>
-
-  <!-- LIST -->
-  <div class="section-title">Daftar Nomor Cantik</div>
-
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Cari nomor...">
   </div>
 
-  <div class="list" id="list">
-    <!-- data dari sheet -->
+  <div class="hero-image">
+    <img src="PERDANA SPESIAL NOMOR CANTIK.png">
   </div>
+</section>
 
-  <!-- SCRIPT DATA -->
-  <script>
+<div class="section-title">Daftar Nomor Cantik</div>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="Cari nomor...">
+</div>
+
+<div class="list" id="list"></div>
+
+<script>
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvpq2x-mW4BIZQvynQKfN0stOXX6lgPxaq6_njg_VY8PKKJljU7JcTQRCOKCHYhMKgZ33tmoS_zYmj/pub?output=csv";
 let allData = [];
 
@@ -255,8 +227,8 @@ fetch(SHEET_URL)
   .then(csv => {
     const rows = csv.split("\n").slice(1);
     allData = rows.map(r => {
-      const [nomor, status, harga] = r.split(",");
-      return { nomor, status, harga };
+      const [nomor, status, harga, , link] = r.split(",");
+      return { nomor, status, harga, link };
     });
     render(allData);
   });
@@ -264,12 +236,20 @@ fetch(SHEET_URL)
 function render(data) {
   const list = document.getElementById("list");
   list.innerHTML = "";
+
   data.forEach(d => {
+    const tersedia = d.status.trim().toLowerCase() === "tersedia";
+
     list.innerHTML += `
       <div class="card">
-        <b>${d.nomor}</b><br>
-        <small class="${d.status === 'Sold Out' ? 'sold' : ''}">${d.status}</small>
+        <b>${d.nomor}</b>
+        <div class="status">${d.status}</div>
         <div class="price">Rp ${Number(d.harga).toLocaleString()}</div>
+        <a href="${tersedia ? d.link : '#'}"
+           target="_blank"
+           class="btn-order ${tersedia ? '' : 'disabled'}">
+           ${tersedia ? 'Pesan Sekarang' : 'Sold Out'}
+        </a>
       </div>
     `;
   });
@@ -283,5 +263,3 @@ document.getElementById("search").addEventListener("input", e => {
 
 </body>
 </html>
-
-
