@@ -44,7 +44,6 @@
       line-height: 1.05;
       font-weight: 900;
       text-transform: uppercase;
-      color: #ffffff;
       letter-spacing: -1.5px;
       margin-bottom: 10px;
       text-shadow:
@@ -63,10 +62,6 @@
     .hero .subtitle {
       color: #ffd200;
       font-weight: 700;
-      letter-spacing: 0.2px;
-      text-shadow:
-        0px 4px 0 rgba(0,0,0,0.35),
-        0px 8px 16px rgba(0,0,0,0.4);
       margin-bottom: 16px;
     }
 
@@ -144,7 +139,6 @@
       margin-bottom: 10px;
     }
 
-    /* TOMBOL PESAN */
     .btn-order {
       display: block;
       width: 100%;
@@ -162,6 +156,13 @@
       background: #ccc;
       color: #666;
       pointer-events: none;
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 30px 10px;
+      font-weight: 700;
+      opacity: 0.9;
     }
 
     @media (min-width: 900px) {
@@ -190,7 +191,7 @@
 <!-- HERO -->
 <section class="hero">
   <div>
-    <h1>Perdana Spesial <span>Nomor Cantik</span></h1>
+    <h1>Perdana Spesial Nomor Cantik</h1>
     <div class="subtitle">Bonus Kuota 260GB Selama Setahun</div>
 
     <div class="quota">
@@ -237,6 +238,11 @@ function render(data) {
   const list = document.getElementById("list");
   list.innerHTML = "";
 
+  if (data.length === 0) {
+    list.innerHTML = `<div class="not-found">Nomor Tidak Ditemukan</div>`;
+    return;
+  }
+
   data.forEach(d => {
     const tersedia = d.status.trim().toLowerCase() === "tersedia";
 
@@ -256,7 +262,7 @@ function render(data) {
 }
 
 document.getElementById("search").addEventListener("input", e => {
-  const val = e.target.value;
+  const val = e.target.value.trim();
   render(allData.filter(d => d.nomor.includes(val)));
 });
 </script>
